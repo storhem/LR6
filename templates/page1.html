@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ header }}</h1>
+    <p>{{ description }}</p>
+
+    <h3>Функции:</h3>
+    <ul style="text-align: left; display: inline-block;">
+        {% for feature in features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Техническая информация:</h3>
+    <p>Стили загружаются из файла: <code>{{ info.style_file }}</code></p>
+    <p>Базовый шаблон: <code>{{ info.template_file }}</code></p>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+{% endblock %}
